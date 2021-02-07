@@ -1,4 +1,4 @@
-from rest_framework import serializers 
+from rest_framework import serializers
 from tutorials.models import Tutorial
 from tutorials.models import Notes27Jan
  
