@@ -1,0 +1,13 @@
+#djDebug {
+    display: none !important;
+}
+
+table {
+border: solid;
+border-width: 3px;
+
+}
+
+body {
+background-color: yellow;
+}
