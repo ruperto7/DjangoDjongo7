@@ -29,8 +29,8 @@ urlpatterns = [
     #url(r'^login/', views.login_request, name="login2"),
     path('index',  TemplateView.as_view(template_name="index.html", extra_context={'title':'Custom Title'} )),
     path('accounts/', include('django.contrib.auth.urls')),
-    ##path('views_debug/', views_debug.sessionsAndUsers, name="views_debug")
-    path('views_debug/', views_debug.ApiHandler3, name="views_debug")
+    path('views_debug/', views_debug.sessionsAndUsers, name="views_debug")
+    ##path('views_debug/', views_debug.ApiHandler3, name="views_debug")
     #.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 #
