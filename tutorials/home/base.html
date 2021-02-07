@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html>
+<head>
+{% load static %}
+{% csrf_token %}
+
+<link rel="stylesheet"  type="css"  href="{% static './gmail.css' %}">
+<link rel="stylesheet"  type="css"  href="{% static './basic2.css' %}">
+<link rel="stylesheet" href="{% static './bootstrap.css'  %}">
+    <title>Django 3.1.8 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+ 
+<Style>
+#tbl1{
+    font-size: xx-small;
+}
+
+</Style>
+
+ <span class="genindex-jumpbox"> Go to ->
+<a href="{% url 'root' %}"> Home Public page </a>  |
+<a href="{% url 'home' %}"> home page </a>  |
+<a href="{% url 'misc' %}"> misc data</a>  |
+<a href="{% url 'misc2' %}"> misc2 data </a> | 
+ <span>
+
+{% if user.is_authenticated %}
+ Hi {{ user.username }}! <a href="{% url 'logout' %}"> Logout</a> 
+{% else %}
+ You are not logged in.
+<a href="{% url 'login' %}">Yes, I want to Log In</a> 
+{% endif %} 
+
+{% block title %}{{ section.title }} {% endblock %}
+{% block content %}
+    {{ test_str }}
+    <h3>
+        {{ test_str2 }}
+    </h3>
+    <h3>
+        {{ content }}
+    </h3>
+    <div id="div1"> Let jQuery AJAX Change This Text <button>Get External Content</button>{% csrf_token %}</div>
+
+{% endblock %}
+</body>
+</html>

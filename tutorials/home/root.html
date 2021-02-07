@@ -1,0 +1,13 @@
+{% extends "./basePublic.html" %} 
+{% block content %}
+{% csrf_token %}{% load static %}
+{{ section.title }} 
+<div class="genindex-jumpbox">
+    {{ about_message }}
+
+<a href="{% url 'admin:index' %}">/admin/ django.contrib.admin.sites.index</a> <br>
+
+<br><img class="img-fluid" src="{% static './aboutMain.jpg' %}" } ><br 
+   
+{% include "./footer.html" %}
+ {% endblock %}

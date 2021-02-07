@@ -1,0 +1,50 @@
+{% extends "./base.html" %} 
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h4>misc2.html - YOU ARE LOGGED IN. </h4>
+<a href="{% url 'home' %}">/home   tutorials.views.home </a> <br>
+{% load static %} 
+{% for item in allNotesV %} 
+<img src="{% static './doc-x-Small.jpg' %}" } >  <span class="italic x-small ">id: {{ item.id }} </span>Date:<span class="italic x-small ">{{ item.date }} </span>  
+        <div class="container x-small" style="font-size: small">
+                <div class="row " > 
+                        <div class=”col-sm”> 
+                                {% if item.title %}
+                                        <span class="list-group-item-primary">&nbspTitle&nbsp</span> <span >{{ item.title }}</span>
+                                {% endif %} 
+                                {% if item.desc %}
+                                        <span class="list-group-item-success" >&nbspDesc&nbsp</span>  <span class=" x-small"> {{ item.desc }} </span>
+                                {% endif %} 
+                        </div>
+                        <div class=”col-sm”>
+                                {% if item.comment %}
+                                        <span class="list-group-item-secondary">&nbspComment&nbsp</span> <span class=" x-small"></span><span class=" x-small"> {{ item.comment}}</span>
+                                {% endif %}                        
+                                {% if item.comment1 %}
+                                        <span class="list-group-item-info">&nbspComment1&nbsp</span> <span class=" x-small">{{ item.comment1 }}</span>
+                                {% endif %} 
+                        </div>
+                        <div class=”col-sm”>
+                                {% if item.comment2 %}
+                                        <span class="list-group-item-warning" >&nbspComment2&nbsp</span><span class=" x-small"> {{ item.comment2 }}</span>
+                                {% endif %} 
+                                {% if item.comment3 %}
+                                        <span class="list-group-item-danger">&nbspComment3&nbsp</span><span class=" x-small"> {{ item.comment3}}</span>
+                                {% endif %}     
+                                {% if item.keywords %}
+                                <span class="list-group-item-danger">&nbspKeywords&nbsp</span><span class=" x-small"> {{ item.keywords}}</span>
+                        {% endif %}                     
+                        </div>
+                </div>
+        </div> 
+{% endfor %}
+
+{% include "./footer.html" %}
+<script>
+        //alert("wazzup");
+</script>
+{% endblock %}
+
+
+

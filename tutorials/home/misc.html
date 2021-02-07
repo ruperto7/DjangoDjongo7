@@ -1,0 +1,20 @@
+{% extends "./base.html" %} 
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h3>misc.html - No Login Required in Q1 2021</h3>
+<a href="{% url 'home' %}">/home   tutorials.views.home </a> <br>
+<table id="tbl1" class="table   table-striped  " >
+ <thead class="col-md-2 thead-dark "><th  class="col-md-2" >TITLE</th><th  class="col-md-2">DESC</th>
+        <th  class="col-md-1">COMMENT</th><th class="col-md-1">COMMENT1</th>
+        <th class="col-md-1">COMMENT2</th><th class="col-md-1">COMMENT3</th>
+        <th class="col-md-1">COMMENT4</th><th class="col-md-1">KW</th></thead>  
+{% for item in allNotesV %}
+     <tr><td>{{ item.title }} </td><td> {{ item.desc }}</td><td> {{ item.comment }}</td>
+        <td> {{ item.comment1 }}</td><td> {{ item.comment2 }}</td><td> {{ item.comment3 }}</td>
+        <td> {{ item.comment4 }}</td><td> {{ item.keywords }}</td></tr>
+{% endfor %}
+ 
+</table>
+{% include "./footer.html" %} 
+{% endblock %}
