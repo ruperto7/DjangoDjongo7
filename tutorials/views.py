@@ -6,22 +6,24 @@ from tutorials.serializers import TutorialSerializer
 from rest_framework.decorators import api_view
 import logging, logging.config #LOGGER
 from pprint import pprint
-from rest_framework import serializers #totoa gritty fool
+#from rest_framework import serializers #totoa gritty fool
 import django
-from django.core import serializers
+#from django.core import serializers
 ##from django.db  import connections
 from django.shortcuts import render #TO SEE A WEB PAGE
 from tutorials.models import Notes27Jan
-from django.contrib.auth import authenticate, login, logout
+#from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 #from rest_framework.response import Response
-from django.template.context_processors import csrf
+#from django.template.context_processors import csrf
 #from django.contrib.sitemaps.views import sitemap
 from tutorials.forms import ContactForm
 from django.views.generic.edit import FormView
-from tutorials.serializers import Notes27JanSerializer
+#from tutorials.serializers import Notes27JanSerializer
+from django.views.decorators.csrf import csrf_exempt
 
-#@api_view(['GET'])
+@csrf_exempt
+@api_view(['POST','GET'])
 def misc(request):
     v,k=allNotes()
     return render(request, './misc.html', {"about_message":main_content(), "allNotesV" : v, "allNotesK" : k}) 
@@ -100,31 +102,29 @@ def tutorial_list_published(request):
 
 @api_view(['POST','GET'])
 def root(request):
-    logging.info('Hello from root') #+csrf.get_token(request)
     return render(request, './root.html', {"about_message":main_content() })     
     
 @api_view(['GET'])
 def base(request):
-    logging.info('Hello from views.base, csrf_token = ') #+csrf.get_token(request)
     return render(request, './base.html', { }) 
  
 #    logging.info('views.py function home(request )') # 
 #    return JsonResponse({'message': 'wazzup?!'} )
 @api_view(['POST','GET'])
 def home(request):
-    logging.info('Hello from views.home, csrf_token = ') #+csrf.get_token(request)
     return render(request, './home.html', {"about_message":main_content() }) 
     #return render(request, './home.html', { }) 
 
 def main_content():
     return "Notes27Jan and Todo Notes 2021"
-
-@api_view(['GET']) #
+@csrf_exempt
+@api_view(['POST','GET'])
 @login_required(login_url='/accounts/login/') #views.login_request
 def misc2(request):
     logging.info('Hello from views.misc2, BASE_DIR is'+globals()['__name__'] ) #+csrf.get_token(request)
     v,k=allNotes()
     return render(request, './misc2.html', {"about_message":main_content(), "allNotesV" : v, "allNotesK" : k})   
+
 def allNotes():
     #return Notes27Jan.objects.all(),   Notes27Jan.objects.all()
     return Notes27Jan.objects.all().order_by('-date'),  Notes27Jan.objects.all().order_by('-date')

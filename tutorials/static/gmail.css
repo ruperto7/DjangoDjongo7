@@ -970,17 +970,7 @@ td.apU .T-KT {
 	}
 }
 
-@media screen and (-ms-high-contrast:white-on-black) {
-	.d-Na-J3 {
-		background-image: url(https://www.gstatic.com/inputtools/images/ita_sprite_grey8.png);
-	}
-	@media (min-resolution:144dpi),
-	(-webkit-min-device-pixel-ratio:1.5) {
-		.d-Na-J3 {
-			background-image: url(https://www.gstatic.com/inputtools/images/ita_sprite_grey8_2x.png);
-		}
-	}
-}
+ 
 
 .d-Na-hFsbo {
 	background-position: -620px -218px;
@@ -1118,13 +1108,6 @@ td.apU .T-KT {
 	display: inline-block;
 	width: 22px;
 	height: 16px;
-}
-
-@media screen and (-ms-high-contrast:white-on-black) {
-	.d-Na-JX-ax3,
-	.d-Na-N-M7-JX {
-		opacity: 1;
-	}
 }
 
 .aBS {
@@ -1340,21 +1323,6 @@ td.apU .T-KT {
 	}
 }
 
-@media screen and (-ms-high-contrast:white-on-black) {
-	.aBS .d-Na-JX-I .d-Na-J3 {
-		background-image: url(https://www.gstatic.com/inputtools/images/ita_sprite_grey8.png);
-	}
-	@media (min-resolution:144dpi),
-	(-webkit-min-device-pixel-ratio:1.5) {
-		.aBS .d-Na-JX-I .d-Na-J3 {
-			background-image: url(https://www.gstatic.com/inputtools/images/ita_sprite_grey8_2x.png);
-		}
-	}
-	.d-Na-JX-ax3,
-	.d-Na-N-M7-JX {
-		opacity: 1;
-	}
-}
 
 .T9 {
 	margin-left: .5ex;
@@ -1696,11 +1664,6 @@ div.nq {
 	opacity: .54;
 }
 
-.T-I-ax7.T-I-JE .T-I-J3 {
-	filter: alpha(opacity=33);
-	opacity: .38;
-}
-
 .py {
 	position: relative;
 	font: .875rem arial, sans-serif;
@@ -2025,14 +1988,6 @@ div.nq {
 	display: flex;
 	-webkit-flex-direction: column;
 	flex-direction: column;
-}
-
-.YX .YM:not(.aND):not(.ik) {
-	-webkit-box-flex: 0 0 auto;
-	-webkit-flex: 0 0 auto;
-	flex: 0 0 auto;
-	margin-left: 0;
-	width: 100%;
 }
 
 .YX .pp {
