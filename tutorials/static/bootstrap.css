@@ -4,6 +4,11 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+.colBtns {
+  text-align: right;background-color:yellow;
+}
+
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -1874,6 +1879,13 @@ pre code {
 
 .table-responsive > .table-bordered {
   border: 0;
+}
+
+.divNotes {
+  background-color: rgb(176, 195, 235); margin: 5px; }
+.right{
+  text-align: right;
+  background-color:rgb(231, 231, 191); 
 }
 
 .form-control {
