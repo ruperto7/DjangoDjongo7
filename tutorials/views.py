@@ -1,8 +1,8 @@
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
-from tutorials.models import Tutorial
-from tutorials.serializers import TutorialSerializer
+#from tutorials.models import Tutorial
+#from tutorials.serializers import TutorialSerializer
 from rest_framework.decorators import api_view
 import logging, logging.config #LOGGER
 from pprint import pprint
@@ -21,6 +21,32 @@ from tutorials.forms import ContactForm
 from django.views.generic.edit import FormView
 #from tutorials.serializers import Notes27JanSerializer
 from django.views.decorators.csrf import csrf_exempt
+from .forms import Notes27JanForm
+from django.http import HttpResponseRedirect
+
+@api_view(['POST','GET'])
+def home(request):
+    return render(request, './home.html', {"about_message":main_content(), "form": get_Notes27Jan(request)}) 
+    #return render(request, './home.html', { }) 
+##############
+def get_Notes27Jan(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = Notes27JanForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = Notes27JanForm()
+    #return render(request, 'home.html', {'form': form})
+    return form
+##############
 
 @csrf_exempt
 @api_view(['POST','GET'])
@@ -110,10 +136,6 @@ def base(request):
  
 #    logging.info('views.py function home(request )') # 
 #    return JsonResponse({'message': 'wazzup?!'} )
-@api_view(['POST','GET'])
-def home(request):
-    return render(request, './home.html', {"about_message":main_content() }) 
-    #return render(request, './home.html', { }) 
 
 def main_content():
     return "Notes27Jan and Todo Notes 2021"

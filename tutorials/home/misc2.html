@@ -4,45 +4,55 @@
 {% block content %}
  misc2.html - You are logged in as {{ request.user}}.  
 <a href="{% url 'home' %}">/home   tutorials.views.home </a> <br>
-{% load static %} 
+{% load static %} <button class"btn-primary">ADD NEW</button>
 {% for item in allNotesV %} 
-<img src="{% static './doc-x-Small.jpg' %}" } >  <span class="italic x-small ">id: {{ item.id }} </span>Date:<span class="italic x-small ">{{ item.date }} </span>  
-
-        {% if item.keywords %}
-                <span class=" list-group-item-primary " style="font-size: small">&nbspKeywords&nbsp</span><span class=" x-small"> {{ item.keywords}}</span>
-        {% endif %} 
-
-        <div class="container x-small" style="font-size: small">
+        <div class="container divNotes" style=" background-color: rgb(230, 245, 245); margin: 5px; padding: 5px;">
                 <div class="row " > 
-                        <div class=”col-sm”> 
-                                {% if item.title %}
-                                        <span class="list-group-item-primary">&nbspTitle&nbsp</span> <span >{{ item.title }}</span>
-                                {% endif %} 
-                                {% if item.desc %}
-                                        <span class="list-group-item-success" >&nbspDesc&nbsp</span>  <span class=" x-small"> {{ item.desc }} </span>
-                                {% endif %} 
-                        </div>
-                        <div class=”col-sm”>
-                                {% if item.comment %}
-                                        <span class="list-group-item-secondary">&nbspComment&nbsp</span> <span class=" x-small"></span><span class=" x-small"> {{ item.comment}}</span>
-                                {% endif %}                        
-                                {% if item.comment1 %}
-                                        <span class="list-group-item-info">&nbspComment1&nbsp</span> <span class=" x-small">{{ item.comment1 }}</span>
+
+                        <div class="col-sm-10">
+                                <img src="{% static './doc-x-Small.jpg' %}" } >  <span class="italic x-small ">id: {{ item.id }} </span>Date:<span class="italic x-small ">{{ item.date }} </span>  
+                                {% if item.keywords %}
+                                        <span class=" list-group-item-primary " style="font-size: small">&nbspKeywords&nbsp</span><span class=" x-small"> {{ item.keywords}}</span>
                                 {% endif %} 
                         </div>
-                        <div class=”col-sm”>
-                                {% if item.comment2 %}
-                                        <span class="list-group-item-warning" >&nbspComment2&nbsp</span><span class=" x-small"> {{ item.comment2 }}</span>
-                                {% endif %} 
-                                {% if item.comment3 %}
-                                        <span class="list-group-item-danger">&nbspComment3&nbsp</span><span class=" x-small"> {{ item.comment3}}</span>
-                                {% endif %}   
-                                {% if item.comment4 %}
-                                        <span class="list-group-item-info">&nbspComment4&nbsp</span><span class=" x-small"> {{ item.comment4}}</span>
-                                {% endif %}                       
+                        <div class="  col-sm-2"> 
+                                <button class"btn-primary">UPDATE </button>
+                                <button class"btn-primary">DELETE</button> 
+                                 
                         </div>
                 </div>
-        </div> 
+                <div class="row " > 
+                        <div class="col-sm-12">
+                                <div class="col-sm-10"> 
+                                        {% if item.title %}
+                                                <span class="list-group-item-primary">&nbspTitle&nbsp</span> <span >{{ item.title }}</span>
+                                        {% endif %} 
+                                        {% if item.desc %}
+                                                <span class="list-group-item-success" >&nbspDesc&nbsp</span>  <span class=" x-small"> {{ item.desc }} </span>
+                                        {% endif %} 
+                                </div>
+                                <div class="col-sm-10">
+                                        {% if item.comment %}
+                                                <span class="list-group-item-secondary">&nbspComment&nbsp</span> <span class=" x-small"></span><span class=" x-small"> {{ item.comment}}</span>
+                                        {% endif %}                        
+                                        {% if item.comment1 %}
+                                                <span class="list-group-item-info">&nbspComment1&nbsp</span> <span class=" x-small">{{ item.comment1 }}</span>
+                                        {% endif %} 
+                                </div>
+                                <div class="col-sm-10">
+                                        {% if item.comment2 %}
+                                                <span class="list-group-item-warning" >&nbspComment2&nbsp</span><span class=" x-small"> {{ item.comment2 }}</span>
+                                        {% endif %} 
+                                        {% if item.comment3 %}
+                                                <span class="list-group-item-danger">&nbspComment3&nbsp</span><span class=" x-small"> {{ item.comment3}}</span>
+                                        {% endif %}   
+                                        {% if item.comment4 %}
+                                                <span class="list-group-item-info">&nbspComment4&nbsp</span><span class=" x-small"> {{ item.comment4}}</span>
+                                        {% endif %}                       
+                                </div>
+                        </div>        
+                </div>
+        </div>
 {% endfor %}
 
 {% include "./footer.html" %}
