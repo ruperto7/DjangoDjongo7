@@ -2,12 +2,6 @@
 @echo off
 cls
 [0m
-[0m
-[0m
-[0m
-[0m
-echo.
-[0m
 [0m (black)
 [0m
 [0m
