@@ -3,7 +3,7 @@ from django.contrib.sessions.models import Session
 #from django.contrib.auth.models import User
 from django.utils import timezone
 from django.conf import settings
-from rest_framework.decorators import api_view
+#from rest_framework.decorators import api_view
 import json
 from django.http import HttpResponse
 
@@ -13,7 +13,7 @@ from django.http import HttpResponse as hr
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
-@api_view(['GET'])
+#@api_view(['GET'])
 def sessionsAndUsers(request):
     sessions = Session.objects.filter(expire_date__gte=timezone.now())
     #sessions.
