@@ -14,6 +14,7 @@ class ExtendedEncoder(DjangoJSONEncoder):
 
 class Tutorial(models.Model):
     title = models.CharField(max_length=70, blank=False, default='')
+    t_id = models.AutoField(primary_key=True)
     description = models.CharField(max_length=200, blank=False, default='')
     published = models.BooleanField(default=False)
     
